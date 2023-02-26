@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure 26_12_22</title>
+</head>
+<body>
+    <script>
+
+        function information(name) {
+            let age = 10;
+            return function(salary) {
+                console.log("Name : " +  name);
+                console.log("salary : " + salary);
+                age += 5;
+                console.log("age : " + age);
+            }
+        }
+
+        let fname = information("Hardik");
+        fname(10000);
+        fname(20000);
+        fname(30000);
+
+        let fname1 = information("Shivay");
+        fname1(50000);
+        fname1(60000);
+    </script>
+</body>
+</html>

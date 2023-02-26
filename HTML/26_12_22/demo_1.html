@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cluser 4</title>
+
+    <style>
+        #display{
+            text-align: center;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="increment()">Increase</button>
+    <button onclick="decreament()">Decrease</button>
+    <div id="display"></div>
+
+    <script>
+        count = 0;
+        function increment() {
+            ++count;
+
+            document.getElementById('display').innerHTML = count;
+        }
+
+        function decreament() {
+            --count;
+
+            document.getElementById('display').innerHTML = count;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

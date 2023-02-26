@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cluser 4</title>
+</head>
+<body>
+    <button onclick="ans()">Increase</button>
+    <button onclick="ans()">Decrease</button>
+    <div id="display"></div>
+
+    <script>
+        function increment() {
+            let counter = 0;
+
+            return function() {
+                ++counter;
+                document.getElementById("display").innerHTML=counter;
+            }
+        }
+
+        let ans = increment();
+    </script>
+    
+</body>
+</html>

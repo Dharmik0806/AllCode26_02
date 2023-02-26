@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first 16_12</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .dropContent{
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+        }
+
+        .dropContent a{
+            display: block;
+           
+        }
+
+        .display{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navBar">
+        <a href="#">About Us</a>
+        <a href="#">Contect Us</a>
+
+        <div class="dropDown">
+            <button class="dropBtn" onclick="myFunction()">
+                service
+                <i class="fa-solid fa-angle-down"></i>
+            </button>
+
+            <div class="dropContent" id="drop_manu">
+                <a href="#">First</a>
+                <a href="#">Secound</a>
+                <a href="#">Third</a>
+                <a href="#">Fourth</a>
+            </div>
+        </div>
+    </nav>
+    
+    <script>
+        function myFunction() {
+            // console.log("sdfsff");
+            document.getElementById("drop_manu").classList.toggle("display");
+        }
+
+        window.onclick = function(e) {
+            if(!e.target.matches(".dropBtn")) {
+                // console.log("okokokokoko");
+                if(document.getElementById("drop_manu").classList.contains("display")) {
+                    // console.log("ok");
+                    document.getElementById("drop_manu").classList.remove("display");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
