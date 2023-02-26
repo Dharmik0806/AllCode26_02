@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="phone_wala_css.css">
+</head>
+
+<body>
+    <div id="container">
+        <div class="box">
+            <img src="image/dell.jpeg" alt="dell">
+            <p>Dell inspiron 16 Laptop </p>
+            <button onclick="addCart(1,'Dell',10000, 'image/dell.jpeg')">Buy</button>
+        </div>
+        <div class="box">
+            <img src="image/apple.jpeg" alt="apple">
+            <p>Nokia</p>
+            <button onclick="addCart(2,'Apple',35000, 'image/apple.jpeg')">Buy</button,>
+        </div>
+        <div class="box">
+            <img src="image/vivo.jpeg" alt="3">
+            <p>Samsang</p>
+            <button onclick="addCart(3,'Vivo',50000, 'image/vivo.jpeg')">Buy</button>
+        </div>
+        <div class="box">
+            <img src="image/oppo.jpeg" alt="oppo">
+            <p>Dell inspiron 16 Laptop </p>
+            <button onclick="addCart(4,'Oppo',55000, 'image/oppo.jpeg')">Buy</button>
+        </div>
+    </div>
+
+
+    <div id="display">
+        <!-- <div class="cart_item">
+            <img src="" alt="">
+            <span>name</span>
+            <span>price</span>
+            <span id="i"i_id>quantity</span>
+            <button></button>
+        </div> -->
+    </div>
+
+    <div id="final_total">
+        <span>Total Amount</span>
+        <span id="t_sum"></span>
+    </div>
+
+    <script>
+        let arr = [], sum = 0;
+
+
+
+        function addCart(i_id, i_name, i_price, i_img) {
+            let count = 0, index;
+            let item = {
+                id: i_id,
+                name: i_name,
+                price: i_price,
+                img: i_img,
+                qua: 1
+            };
+
+            if (arr.length > 0) {
+
+
+                arr.map((a, i) => {
+                    if (a.id === i_id) {
+                        count = 1;
+                        index = i;
+                    }
+                });
+
+                if (count === 1) {
+                    // console.log(index);
+                    // arr[index].qua++;
+
+                    document.getElementById("q" + i_id).innerHTML = ++arr[index].qua
+                    // console.log("ok : " + total_qua);
+
+                    document.getElementById("prc" + i_id).innerHTML = i_price * arr[index].qua;
+                    // console.log("qua" + arr[index].qua);
+
+                    sum = sum + i_price;
+                    document.getElementById("t_sum").innerHTML = sum;
+                    console.log(sum);
+
+
+
+                } else {
+                    arr.push(item);
+                    cartDisplay(i_id, i_name, i_price, i_img);
+
+                    sum = sum + i_price;
+                    document.getElementById("t_sum").innerHTML = sum;
+                    console.log(sum);
+                }
+
+            } else {
+                document.getElementById("final_total").style.display= "block";
+
+                arr.push(item);
+                cartDisplay(i_id, i_name, i_price, i_img);
+
+                sum = sum + i_price;
+                document.getElementById("t_sum").innerHTML = sum;
+                console.log(sum);
+            }
+
+            // console.log(arr);
+        }
+
+        function cartDisplay(i_id, i_name, i_price, i_img) {
+            let mainDiv = document.getElementById("display");
+
+            let innDiv = document.createElement("div");
+            innDiv.setAttribute("class", "cart_item");
+            innDiv.setAttribute("id", "i" + i_id);
+
+            //          span img
+            let sImg = document.createElement("img");
+            sImg.setAttribute("src", i_img)
+
+            //          span name
+            let sName = document.createElement("span");
+            let tName = document.createTextNode(i_name);
+            sName.appendChild(tName);
+            // 
+
+            //          span price
+            let sPrice = document.createElement("span");
+            let tPrice = document.createTextNode(i_price);
+            sPrice.appendChild(tPrice);
+            // 
+
+            //          span QUANTITY
+            let sQua = document.createElement("span");
+            sQua.setAttribute("id", "q" + i_id);
+            let tQua = document.createTextNode("1");
+            sQua.appendChild(tQua);
+            // 
+
+            //          span total
+            let sTotal = document.createElement("span");
+            sTotal.setAttribute("id", "prc" + i_id);
+            tTotal = document.createTextNode(i_price);
+            sTotal.appendChild(tTotal);
+
+            // console.log("++++" + document.getElementById("q" + i_id));
+
+            // 
+
+            //           button
+            let sButton = document.createElement("button");
+            let tButton = document.createTextNode("X");
+            sButton.setAttribute("onclick", "delet_item(" + i_id +")");
+            // sButton.setAttribute("onclick", "delet_item(" + i_id + i_price+")");
+
+            sButton.appendChild(tButton);
+            // 
+
+            innDiv.appendChild(sImg);
+            innDiv.appendChild(sName);
+            innDiv.appendChild(sPrice);
+            innDiv.appendChild(sQua);
+            innDiv.appendChild(sTotal);
+
+            innDiv.appendChild(sButton);
+            mainDiv.append(innDiv);
+
+            //                     Final Total Creat Dom
+
+            // let finDiv = document.createElement("div");
+            // finDiv.setAttribute("id", "final_total");
+            // let t_finDiv = document.createTextNode(sum);
+            // finDiv.appendChild(t_finDiv)
+
+            // mainDiv.appendChild(finDiv);
+        }
+
+        function delet_item(id) {
+           
+            document.getElementById("i" + id).remove();
+
+            let ind = arr.findIndex((i) => i.id === id);
+
+            arr.splice(ind, 1);
+
+            // sum = sum - 10000;
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

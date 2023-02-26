@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>literals2</title>
+</head>
+
+<body>
+    <script>
+        let header = "header"
+        let data = ["one", "two", "three", "four"]
+
+        let demo = `<h1>${header}</h1><ul>`
+        for (let x of data) {
+            demo += `<li>${x}</li>`
+        }
+        
+        demo += `</ul>`
+
+        document.write(demo)
+    </script>
+</body>
+
+</html>

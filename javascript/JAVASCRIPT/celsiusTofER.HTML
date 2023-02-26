@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>celsius to far</title>
+</head>
+
+<body>
+
+    <p>Fahrenheit</p>
+    <div id="convert"></div>
+
+    <script>
+        let cel = prompt("Please enter celsius :");
+
+        document.getElementById("convert").innerHTML = toFahrenheit(cel)
+
+        function toFahrenheit(cel) {
+            let far = (cel * 9 / 5) + 32
+
+            return far;
+        }
+    </script>
+
+</body>
+
+</html>

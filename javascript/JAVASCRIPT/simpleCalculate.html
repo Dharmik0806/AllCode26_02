@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate</title>
+</head>
+
+<body>
+    <input type="number" name="firstNo" id="firstNo" placeholder="number 1" />
+    <select id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" name="secoundNo" id="secoundNo" placeholder="number 2" />
+
+    <button onclick="handleCalulate()">Calculate</button>
+    <input type="text" id="res" name="" readonly/>
+
+    <script>
+        function handleCalulate() {
+            let no1 = document.getElementById("firstNo").value
+            let no2 = document.getElementById("secoundNo").value
+            let op = document.getElementById("op").value
+
+            // alert(no1 + " " + " " + op + " " + no2)
+
+            if (op === "+") {
+                var ans = parseInt(no1)  +  parseInt(no2)
+            } else if (op === "-") {
+                var ans = parseInt(no1)  -  parseInt(no2)
+            } else if (op === "*") {
+                var ans = parseInt(no1)  *  parseInt(no2)
+            } else if (op === "/") {
+                var ans = parseInt(no1)  /  parseInt(no2)
+            }
+
+            document.getElementById("res").value=ans
+        }
+    </script>
+</body>
+
+</html>

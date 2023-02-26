@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_3 drop down</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        #navBar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        #navBar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropDown {
+            float: left;
+        }
+
+        .drop_content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            /* border: 5px solid red; */
+        }
+
+        .drop_content a {
+            display: block;
+        }
+
+        #navBar a:hover,
+        .dropDown:hover .dropBtn,
+        .dropBtn:focus {
+            background-color: red;
+        }
+
+        .drop_content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+                        /* border: 5px solid red; */
+
+        }
+        .dropdown .dropbtn {
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: #333;
+            font-family: inherit;
+            margin: 0;
+        } 
+        .drop_content a{
+            float: none;
+            color: rgb(34, 221, 68);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+             /* border: 5px solid red; */
+
+        }
+
+        .service {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navBar">
+        <a href="#">About Us</a>
+        <a href="#">Contect Us</a>
+
+        <div class="dropDown">
+            <button class="dropBtn" onclick="tongal_class()">Other
+                <i class="fa fa-angle-down"></i>
+            </button>
+
+            <div class="drop_content" id="dropdwonmenu">
+                <a href="#">Contect</a>
+                <a href="#">Money</a>
+                <a href="#">Vip</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+
+        function tongal_class() {
+            document.getElementById("dropdwonmenu").classList.toggle("service");
+        }
+
+        window.onclick = function (e) {
+            if (!e.target.matches(".dropBtn")) {
+                if (document.getElementById("dropdwonmenu").classList.contains("service")) {
+                    document.getElementById("dropdwonmenu").classList.remove("service");
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

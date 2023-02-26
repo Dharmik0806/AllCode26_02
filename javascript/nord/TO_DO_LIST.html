@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+</head>
+
+<body>
+
+    <form onsubmit="add_item() ; event.preventDefault()"> 
+        Enter name:
+        <input type="text" id="name_data">
+        <input type="submit">
+    </form>
+
+    <div id="print_display"></div>
+
+
+    <script>
+        let i = 0;
+        let data_array = [];
+        
+        function add_item() {
+            // console.log('aaaaaaaaaaaa');
+
+            let f_name = document.getElementById('name_data').value;
+            i++;
+            // console.log(f_name + " | " + i);
+
+            let F_name = "Name";
+            let ID = "Id";
+
+            let user = {
+                id: i,
+                fname: f_name
+            };
+
+            // console.log(i);
+            // console.log(user);
+            print(user);
+        }
+
+        function print(new_object) {
+            // console.log(new_object);
+            // data_array = [];
+
+            data_array.push(new_object);
+
+            // console.log("new array");S
+            // console.log(data_array);
+            call();    
+        }
+
+        function call() {
+            let content = '<ul>'
+            data_array.map((w) => {
+                // console.log("idididid :" + w.id);
+                content = content + '<li>' + w.id + "  " + w.fname + "  " + '<button onclick=delet_item(' + w.id + ')>' + "Delet" + '</button>' + '</li>';
+                // console.log(w.id, w.fname);
+            })
+            content = content + '</ul>';
+
+            document.getElementById("print_display").innerHTML = content;
+
+        }
+
+        function delet_item(id_no) {
+            // console.log("DELET ITEM REACHED");
+            // console.log("delet id no : " + id_no);
+
+            let removeIndex = data_array.findIndex(item => item.id === id_no);
+            data_array.splice(removeIndex, 1);
+            call();
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation 21_02</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .form-container {
+            border: 1px solid grey;
+            background-color: #fff;
+            max-width: 400px;
+            /* height: 95vh; */
+            padding: 20px 30px;
+            margin: 20px 10px;
+            border-radius: 5px;
+            box-shadow: -7px 7px 4px grey;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-control input {
+            width: 100%;
+            margin: 8px 0px;
+            padding: 5px;
+            font-size: 15px;
+        }
+
+        .checkbox,
+        select {
+            width: 100%;
+            margin: 8px 2px;
+            padding: 5px;
+            border: 1px solid grey;
+            border-radius: 3px;
+        }
+
+        .checkbox input {
+            margin-left: 5px;
+        }
+
+        .title {
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .btn input {
+            background-color: black;
+            color: #fff;
+            width: 50%;
+            padding: 5px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .btn input:hover {
+            background-color: rgb(188, 182, 182);
+            color: #0e0505;
+            border: none;
+        }
+
+        .error{
+            color: red;
+        }
+    </style>
+
+    <script>
+
+        const formErrore = (id, msg) => {
+            // console.log(id, msg);
+
+            document.getElementById(id).innerHTML=msg
+        }
+
+        const validateForm = () => {
+            alert("ok")
+
+            let fname = document.contactForm.fname.value.trim()
+            let lname = document.contactForm.lname.value.trim()
+            let email = document.contactForm.email.value.trim()
+            let password = document.contactForm.password.value.trim()
+            let conPass = document.contactForm.conPass.value.trim()
+
+            if (fname === "") {
+                formErrore("fnameErrore", "First Name is required");
+            } else {
+
+                let nameReg = /^[a-zA-Z '.-]*$/
+
+                if (nameReg.test(fname)) {
+                    formErrore("fnameErrore", "");
+
+                } else {
+                    formErrore("fnameErrore", "Enter Valid Name is required");
+                }
+            }
+
+            if (lname === "") {
+                formErrore("lnameErrore", "Last Name is required");
+            } else {
+
+                let nameReg = /^[a-zA-Z '.-]*$/
+
+                if (nameReg.test(lname)) {
+                    formErrore("fnameErrore", "");
+
+                } else {
+                    formErrore("fnameErrore", "Enter Valid Name is required");
+                }
+            }
+
+            // ???
+            if (email === "") {
+                formErrore("emailErrore", "Email is required");
+            } else {
+
+                let emailReg =/.+@[^@]+\.[^@]{2,}$/
+
+                if (emailReg.test(email)) {
+                    formErrore("emailErrore", "");
+
+                } else {
+                    formErrore("emailErrore", "Enter Valid email is required");
+                }
+
+            }
+
+            if (password === "") {
+                formErrore("passwordErrore", "Password is required");
+            } else {
+                formErrore("passwordErrore", "");
+            }
+
+            if (conPass === "") {
+                formErrore("conPassErrore", "conform Password is required");
+            } else {
+                formErrore("conPassErrore", "");
+
+            }
+
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container flex flex-center">
+        <div class="form-container ">
+            <h1 class="title">Sign In</h1>
+            <!-- <form name="signUp_form" onsubmit="return validationForm()" action="ddf.php" method="post"> -->
+            <form name="contactForm" onsubmit="return validateForm()" action="/examples/actions/confirmation.php"
+                method="post">
+
+                <div class="form-control">
+                    <label for="fnam">First name :</label>
+                    <input type="text" placeholder="First Name" name="fname" />
+                    <span id="fnameErrore" class="error"></span>
+                </div>
+
+                <div class="form-control">
+                    <label for="lname">Last name :</label>
+                    <input type="text" placeholder="Last Name" name="lname" id="lname" />
+                    <span id="lnameErrore" class="error"></span>
+                </div>
+
+                <div class="form-control">
+                    <label for="lname">E-mail id :</label>
+                    <input type="email" placeholder="E-mail Address" name="email" id="email" />
+                    <span id="emailErrore" class="error"></span>
+                </div>
+
+                <div class="form-control">
+                    <label for="lname">Password :</label>
+                    <input type="password" placeholder="password" name="password" id="password" />
+                    <span id="passwordErrore" class="error"></span>
+                </div>
+
+                <div class="form-control">
+                    <label for="lname">Conform Pasword :</label>
+                    <input type="password" placeholder="Conform Pasword" name="conPass" id="conPass" />
+                    <span id="conPassErrore" class="error"></span>
+                </div>
+
+                <div>
+                    <label for="lname">Hobby :</label>
+                    <div class="checkbox">
+                        <input type="checkbox" value="reading" />&nbsp;&nbsp; Reading
+                        <input type="checkbox" value="reading" />&nbsp;&nbsp; Reading
+                        <input type="checkbox" value="reading" />&nbsp;&nbsp; Reading
+                    </div>
+                </div>
+
+                <div>
+                    <select name="" id="">
+                        <option value="">Select One</option>
+                        <option value="india">India</option>
+                        <option value="usa">U.S.A</option>
+                        <option value="uk">U.K</option>
+                    </select>
+                </div>
+
+                <div class="btn flex flex-center">
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

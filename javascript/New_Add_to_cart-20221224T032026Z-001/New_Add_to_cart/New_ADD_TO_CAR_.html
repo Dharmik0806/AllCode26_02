@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="phone_wala_css.css">
+
+</head>
+
+<body>
+
+    <div id="container" event.preventDefault()>
+        <div class="box">
+            <div class="sub_box">
+                <div class="sub_box">
+                    <img src="image/dell.jpeg" alt="dell">
+                </div>
+            </div>
+            <p class="subtitle">Laptop</p>
+            <p class="subtitle">Dell inspiron 16 Laptop </p>
+            <button onclick="addCart(1,+ ' --lenova-- ' +'lenova',10000 , 'image/dell.jpeg')">Buy</button>
+        </div>
+
+        <div class="box">
+            <div class="sub_box">
+                <img src="image/apple.jpeg" alt="apple">
+            </div>
+            <p class="subtitle">Laptop</p>
+            <p class="subtitle">apple inspiron 16 Laptop </p>
+            <button onclick="addCart(2,'nokia',20000 , 'image/apple.jpeg')">Buy</button>
+        </div>
+
+        <div class="box">
+            <div class="sub_box">
+                <img src="image/download.jpeg" alt="3">
+            </div>
+            <p class="subtitle">Laptop</p>
+            <p class="subtitle">Samsang inspiron 10pro</p>
+            <button onclick="addCart(3,'samsang',30000 , 'image/download.jpeg')">Buy</button>
+        </div>
+
+        <div class="box">
+            <div class="sub_box">
+                <img src="image/1+.jpeg" alt="one+">
+            </div>
+            <p class="subtitle_name">Laptop</p>
+            <p class="subtitle">One+ not 5</p>
+            <p class="subtitle_name">Laptop</p>
+            <button onclick="addCart(4,'One+',40000 , 'image/1+.jpeg')">Buy</button>
+        </div>
+
+    </div>
+
+    <div id="display">
+        <!-- <div id="r1 class="item_box">
+            <img src="" alt="">
+            <span>mobile</span>
+            <span>10000</span>
+
+            <div id="btn_1">
+                <button onclick="decrement(1)">-</button>
+                <span id="q1">3</span>
+                <button onclick="increment(1)">+</button>
+            </div>
+
+            <button>X</button>
+
+            <span>price<price>
+        </div> -->
+
+        <!-- <div id="total_amount"></div> -->
+
+    </div>
+
+    <script>
+        let arr = [];
+        let QUA;
+
+        let film_poster = ["image/dell.jpeg", "image/apple.jpeg", "image/download.jpeg", "image/1+.jpeg"]
+
+
+
+        function addCart(i_id, i_name, i_price, i_img) {
+            let count = 0, index;
+            let item = {
+                id: i_id,
+                name: i_name,
+                price: i_price,
+                qua: 1
+            };
+
+            if (arr.length > 0) {
+
+                arr.map((a, i) => {
+                    if (a.id === i_id) {
+                        count = 1;
+                        index = i;
+                    }
+                });
+
+                if (count === 1) {
+                    document.getElementById("q" + i_id).innerHTML = ++arr[index].qua;
+
+                    // **
+                    // total_price(i_id , i_price);
+
+                    // console.log(arr[index]);
+                    // document.getElementById("p" + i_id).innerHTML = i_price;
+                } else {
+                    arr.push(item);
+                    display(i_id, i_name, i_price, i_img);
+                }
+
+            } else {
+                arr.push(item);
+
+                display(i_id, i_name, i_price, i_img);
+ 
+            }
+
+            console.log(arr);
+        }
+
+        function display(i_id, i_name, i_price, i_img) {
+            let mainDiv = document.getElementById("display");
+
+            let subDiv = document.createElement("div");
+            subDiv.setAttribute("id", "r" + i_id);
+            subDiv.setAttribute("class", "item_box");
+
+            let imgEle = document.createElement("img");
+            imgEle.setAttribute("src", i_img);
+
+            let nameEle = document.createElement("span");
+            let nameEleNord = document.createTextNode(i_name);
+            nameEle.appendChild(nameEleNord);
+
+            let priceEle = document.createElement("span");
+            let priceEleNord = document.createTextNode(i_price);
+            priceEle.appendChild(priceEleNord);
+
+            // BTN
+            let btnDiv = document.createElement("div");
+            btnDiv.setAttribute("id", "btn" + i_id);
+            btnDiv.setAttribute("class", "quantity_btn");
+
+
+            let increBtn = document.createElement("button");
+            increBtnNord = document.createTextNode("-");
+            increBtn.appendChild(increBtnNord);
+            increBtn.setAttribute("onclick", "decrement(" + i_id + ")")
+
+            let quaEle = document.createElement("span");
+            let quaEleNord = document.createTextNode("1");
+            quaEle.appendChild(quaEleNord);
+            quaEle.setAttribute("id", "q" + i_id);
+
+            let decreBtn = document.createElement("button");
+            decreBtnNord = document.createTextNode("+");
+            decreBtn.appendChild(decreBtnNord);
+            decreBtn.setAttribute("onclick", "increment(" + i_id + ")")
+
+            // delet 
+            let deletBtn = document.createElement("button");
+            let deletBtnNord = document.createTextNode("X");
+            deletBtn.setAttribute("onclick", "delet_item(" + i_id + ")")
+            deletBtn.appendChild(deletBtnNord);
+
+            // price
+            let I_price = document.createElement("span");
+            let I_priceNord = document.createTextNode(i_price);
+            I_price.appendChild(I_priceNord);
+            I_price.setAttribute("id" , "P" + i_id)
+
+            mainDiv.appendChild(subDiv)
+
+            subDiv.appendChild(imgEle);
+            subDiv.appendChild(nameEle);
+            subDiv.appendChild(priceEle);
+
+            subDiv.appendChild(btnDiv);
+            btnDiv.appendChild(increBtn);
+            btnDiv.appendChild(quaEle);
+            btnDiv.appendChild(decreBtn);
+
+            subDiv.appendChild(deletBtn);
+            subDiv.appendChild(I_price);
+
+          
+        }
+
+        function increment(i_id ) {
+
+            let v_i = document.getElementById("q" + i_id).innerHTML;
+
+            document.getElementById("q" + i_id).innerHTML = ++v_i;
+
+            // document.getElementById("P"+i_id).innerHTML = i_price * v_i;
+            console.log(arr);
+           
+        }
+
+        function decrement(i_id) {
+            // console.log(i_id);
+
+            let v_d = document.getElementById("q" + i_id).innerHTML;
+
+            if (v_d > 1) {
+                document.getElementById("q" + i_id).innerHTML = --v_d;
+
+                arr.map((f) => {
+                    // console.log(f);
+                    if (f.id === i_id) {
+                        // console.log(f.id + " ok");
+                        --f.qua;
+
+                    }
+                })
+                console.log(arr);
+            }
+        }
+
+
+        function delet_item(i_id) {
+            // console.log("delet : ", i_id);
+
+            document.getElementById("r" + i_id).remove();
+
+            let index2 = arr.findIndex((i) => i.id === i_id);
+
+            arr.splice(index2, 1);
+
+        }
+  
+      
+  </script>
+
+
+</body>
+
+</html>

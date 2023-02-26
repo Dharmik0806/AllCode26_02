@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sort2</title>
+</head>
+
+<body>
+    <script>
+        let data = [
+            {
+                name : "aaa",
+                price :12
+            },
+            {
+                name : "ddd",
+                price :3
+            },
+            {
+                name : "kkk",
+                price :5
+            },
+            {
+                name : "eee",
+                price :15
+            }
+        ]
+
+       let lToh = data.sort((a,b) => {
+          return a.price - b.price
+        })
+        console.log(lToh);
+
+        let hTol = data.sort((a,b) => {
+          return b.price - a.price
+        })
+        console.log(hTol);
+
+       let name1 = data.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+       console.log(name1);
+
+       let name2 = data.sort((a,b) => (a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0))
+       console.log(name1);
+
+    </script>
+</body>
+
+</html>

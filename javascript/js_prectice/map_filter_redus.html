@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data = [
+            { name: "qwe", age: 32 },
+            { name: "asfd", age: 555 },
+            { name: "wer", age: 343 },
+            { name: "sdf", age: 500 }
+        ]
+
+        // 1. for loop
+        // for(let i=0; i < data.length; i++) {
+        //     console.log(data[i]);
+        // }
+
+        // 2. forEach
+
+        // data.forEach((a,b) => {
+        //     console.log(a);
+        // })
+
+        // data.forEach(function (d, index) {
+        //     console.log(d);
+        // })
+
+        // 3. map
+
+        // let d2 = data.map((a, s) => {
+        //     console.log(a.name);
+        //     return a.name
+        // })
+
+        // console.log(d2);
+
+        // let d1 = data.map((a, s) => {
+        //     return `${a.name}`
+        //     return a.name
+        // })
+
+        // console.log(d1);
+
+        // 4 sort
+        // sadata kramama
+        // let newData = data.sort((a,b) => a.age > b.age ? 1:-1)
+        // console.log(newData);
+
+        // utarata kramama
+        // let newData1 = data.sort((a,b) => a.age < b.age ? 1:-1)
+        // console.log(newData1);
+
+        // redus
+        // let ageTotal = data.reduce((total,age) => console.log( age.age));
+
+        // find total age
+        // let ageTotal = data.reduce((total, age1) => {
+        //     console.log(total);
+        //     return total+age1.age
+        // },0);
+        // console.log(ageTotal);
+    </script>
+</body>
+
+</html>

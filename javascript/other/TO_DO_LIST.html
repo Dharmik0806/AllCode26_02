@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+</head>
+
+<body>
+
+    <form onsubmit="add_item() ; event.preventDefault()"> 
+        Enter name:
+        <input type="text" id="name_data">
+        <input type="submit">
+    </form>
+
+    <div id="print_display">
+        <!-- <div id="101">
+            <span>Dharmik</span>
+            <button>X</button>
+        </div>
+        <div id="102">
+            <span>Piyush</span>
+            <button>X</button>
+        </div> -->
+    </div>
+
+
+    <script>
+        let i = 0;
+        
+        function add_item() {
+            let f_name = document.getElementById('name_data').value;
+            i++;
+
+            let mainDiv = document.getElementById("print_display");
+
+            let divElm = document.createElement("div");
+            divElm.setAttribute("id", i);
+
+            let spanElm = document.createElement("span");
+            let textNode = document.createTextNode(f_name);
+            spanElm.appendChild(textNode);
+
+            let btnElm = document.createElement("button");
+            let btnTxt = document.createTextNode("X");
+            btnElm.setAttribute("onclick", "delet_item(" + i +")")
+            btnElm.appendChild(btnTxt);
+
+            divElm.appendChild(spanElm);
+            divElm.appendChild(btnElm);
+
+            mainDiv.appendChild(divElm);
+        }
+
+        function delet_item(id_no) {
+            document.getElementById(id_no).remove();
+        }
+
+    </script>
+</body>
+
+</html>

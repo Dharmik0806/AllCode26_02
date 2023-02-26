@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy array</title>
+</head>
+<body>
+    <script>
+        let dataOne = ["one" , "two"]
+        let dataTwo = ["three" , "four"]
+
+        let newData = [...dataOne , ...dataTwo]
+
+        console.log(newData);
+        document.write(newData)
+
+        // map function use on array
+        newData.map((a) => console.log(a))
+    </script>
+</body>
+</html>

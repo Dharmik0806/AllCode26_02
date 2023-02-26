@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM CONSEPT 1</title>
+
+    <link rel="stylesheet" href="dom_css.css">
+</head>
+
+<body>
+
+    <form onsubmit="Add_item(); event.preventDefault()">
+        <label for="fname">Name</label>
+
+        <input type="text" id="subItem" />
+        <input type="submit" />
+    </form>
+
+    <div id="container"></div>
+
+    <!-- <div id="print_display">
+        <div id="101">
+            <span>Dharmik</span>
+            <button>X</button>
+        </div>
+        <div id="102">
+            <span>Piyush</span>
+            <button>X</button>
+        </div>
+    </div> -->
+
+    <!-- <div class="heading">
+        <span>Item</span>
+        <span>aaaa</span>
+        <span>Price</span>
+        <span>Quantity</span>
+        <span>Total</span>
+    </div> -->
+
+    <!-- <div id="cartContainer">
+
+        <div>
+            <img src="download.jpeg" alt="image1">
+        <span>leptop</span>
+        </div>
+        <span>50000</span>
+        <span>QUANTITY</span>
+        <span>Total</span>
+
+    </div> -->
+
+    <script>
+        let i = 0;
+
+
+        function Add_item() {
+            i++;
+            let name = document.getElementById("subItem").value;
+
+            let main1 = document.getElementById("container");
+
+            let divEle = document.createElement("div");
+            divEle.setAttribute("id", i)
+
+            let spanEle = document.createElement("span");
+            let spanTextNord = document.createTextNode(name);
+            spanEle.appendChild(spanTextNord);
+
+            let btnEle = document.createElement("button");
+            let bteTextNord = document.createTextNode("x");
+            btnEle.setAttribute("onclick", "delete_1(" + i + ")");
+            btnEle.appendChild(bteTextNord);
+
+            divEle.appendChild(spanEle);
+            divEle.appendChild(btnEle);
+
+            main1.appendChild(divEle);
+
+            console.log(name);
+        }
+
+        function delete_1(id1) {
+
+            document.getElementById(id1).remove();
+            console.log(id1);
+        }
+    </script>
+</body>
+
+</html>
