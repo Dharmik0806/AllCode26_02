@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+
+    <script>
+
+        function login_form() {
+            let email = document.login.l_email.value;
+            let Password_ = document.login.l_password.value;
+
+            let localdata = JSON.parse(localStorage.getItem("user"))
+            let count = 0;
+
+            // localdata.map((s) => alert(s.name));
+
+            localdata.map((a) => {
+                if (a.email === email) {
+                    count = 1;
+                }
+            })
+
+            if (count === 1) {
+               confirm("Logine Successfull")
+
+                // } else if (count === 2) {
+                //     prompt("22222")
+                //
+            }
+            else {
+                confirm("Sorry , Not Valide Email or Password");
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <form action="" name="login" onsubmit="login_form()">
+        <input type="text" name="l_email" placeholder="E-mail" id="">
+        <input type="text" name="l_password" placeholder="Password" id="">
+
+        <input type="submit" value="Login">
+    </form>
+
+</body>
+
+</html>
+
+
+
+<!-- *********************=******************************************************************************************************************************************* -->
+
+<!-- localdata.map((a) => {
+    if (a.email === email) {
+        if(a.password === Password_) {
+            count = 1;
+        }else{
+            count = 2;
+        }
+    }else{
+        count = 3
+    }
+})
+
+
+0 = not correct email or password
+1 = correct email or password
+2 = correct email and not correct password
+3 = email or password not correct -->

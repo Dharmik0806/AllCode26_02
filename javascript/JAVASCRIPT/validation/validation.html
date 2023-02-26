@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .signup-container {
+            max-width: 600px;
+            padding: 30px 20px;
+            margin-top: 50px;
+            box-shadow: -7px 7px 5px grey;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        .error {
+            color: red;
+            margin: 5px;
+        }
+    </style>
+
+    <script>
+        const formErrore = (id, msg) => {
+            console.log("errr");
+            document.getElementById(id).innerHTML = msg;
+        }
+        const validationForm = () => {
+            // alert("ok")
+
+            let fname = document.signupForm.fname.value.trim();
+            let lname = document.signupForm.lname.value;
+            let password = document.signupForm.password.value;
+            let conpass = document.signupForm.conpass.value;
+            let gmail = document.signupForm.gmail.value;
+            let mono = document.signupForm.mono.value;
+
+            console.log(fname);
+            console.log(lname);
+            console.log(password);
+            console.log(conpass);
+            console.log(gmail);
+            console.log(mono);
+
+            if (fname === "") {
+                formErrore("fname_errore", "First Name is Required Feild.");
+            } else {
+
+                let fnameReg = /^[a-z ,.'-]+$/i
+
+                if (fnameReg.test(fname)) {
+                    formErrore("fname_errore", "");
+
+                } else {
+                    formErrore("fname_errore", "valid First Name is Required Feild.");
+
+                }
+                // formErrore("fname_errore", "");
+                // return true
+            }
+
+            if (lname === "") {
+                formErrore("lname_errore", "Last Name is Required Feild.");
+            } else {
+                formErrore("lname_errore", "");
+            }
+
+            if (gmail === "") {
+                formErrore("email_errore", "Gmail is Required Feild.");
+            } else {
+                formErrore("email_errore", "");
+            }
+
+            if (password === "") {
+                formErrore("password_errore", "password is Required Feild.");
+            } else {
+
+                let regularExpression  = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+                // if (regularExpression.test(password)) {
+                if (password.match(regularExpression)) {
+                    formErrore("password_errore", "");
+
+                } else {
+                    formErrore("password_errore", "valid password");
+
+                }
+            }
+
+            if (conpass === "") {
+                formErrore("conPass_errore", "conform password is Required Feild.");
+            } else {
+                formErrore("conPass_errore", "");
+            }
+
+
+            if (mono === "") {
+                formErrore("mono_errore", "Mobail no  is Required Feild.");
+            } else {
+                formErrore("mono_errore", "");
+            }
+
+            return false
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <form name="signupForm" onsubmit="return validationForm()" action="abc.php" method="post">
+        <div class="container signup-container">
+            <h1>SignUP Form</h1>
+            <hr />
+            <div class="form-row">
+
+                <div class="col">
+                    <label for="fname">First Name :</label>
+                    <input type="text" name="fname" id="fname" class="form-control" placeholder="First name" />
+                    <span class="error" id="fname_errore"></span>
+                </div>
+
+                <div class="col">
+                    <label for="lname">Last Name :</label>
+                    <input type="text" name="lname" id="lname" class="form-control" placeholder="Last name" />
+                    <span class="error" id="lname_errore"></span>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" name="gmail" class="form-control" id="email" placeholder="name@example.com" />
+                <span class="error" id="email_errore"></span>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="col">
+                    <label for="fname">Password :</label>
+                    <input type="password" name="password" id="pass" class="form-control" placeholder="Password" />
+                    <span class="error" id="password_errore"></span>
+
+                </div>
+
+                <div class="col">
+                    <label for="lname">Conform Password :</label>
+                    <input type="password" name="conpass" id="conPass" class="form-control"
+                        placeholder="Conform Password" />
+                    <span class="error" id="conPass_errore"></span>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="col">
+                    <label for="fname">Mobail No :</label>
+                    <input type="number" id="mono" class="form-control" placeholder="Mobail No" />
+                    <span class="error" id="mono_errore"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <button type="submit" style="margin: 40px auto 0px;color: black;" class="btn btn-outline-secondary">Sign
+                    in</button>
+            </div>
+
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>

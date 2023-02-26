@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail</title>
+
+    <script>
+        function hendaldrover() {
+            let name = document.register_form.fname.value;
+            let email = document.register_form.email.value;
+            let password = document.register_form.password.value;
+            // console.log(name);
+
+            let data = {
+                name,
+                email,
+                password
+            }
+           
+            let localdata = JSON.parse(localStorage.getItem("user"));
+
+
+            if(localdata === null) {
+                localStorage.setItem("user" , JSON.stringify([data]))
+            }else{
+                localdata.push(data);
+                localStorage.setItem("user" , JSON.stringify(localdata))
+            }
+
+            // console.log(localdata);
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <form action="" name="register_form" onsubmit="hendaldrover()">
+        <input type="text" name="fname" placeholder="Name" id="">
+        <input type="text" name="email" placeholder="E-Mail" id="">
+        <input type="text" name="password" placeholder="Password" id="">
+
+        <input type="submit" value="Submit" />
+    </form>
+
+</body>
+
+</html>

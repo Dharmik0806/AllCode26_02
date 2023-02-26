@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="addCart(); event.preventDefault()">
+        <label for="fnamme">Name :</label>
+        <input type="text" id="fname" />
+        <input type="submit" />
+    </form>
+
+    <div id="container">
+        <!-- <div id="id_no">
+            <span>dharmik</span>
+            <button onclick="abc()">x</button>
+        </div>
+
+        <div id="id_no">
+            <span>dharmik</span>
+            <button onclick="abc()">x</button>
+        </div> -->
+    </div>
+
+    <script>
+        let i = 0;
+
+        function addCart() {
+            i++;
+            let f_Name = document.getElementById('fnameS').value;
+
+            let mainContainer = document.getElementById("container");
+
+            let divEle = document.createElement("div");
+            divEle.setAttribute("id_no", i);
+
+            let spanEle = document.createElement("span");
+            let spanTextNord = document.createTextNode(f_Name);
+            spanEle.appendChild(spanTextNord);
+
+            let btnEle = document.createEvent("button");
+            let btnTextNord = document.createTextNode("x");
+            btnEle.setAttribute("onclick", "deletItem(" + i + ")")
+            btnEle.appendChild(btnTextNord);
+
+            divEle.appendChild(spanEle);
+            divEle.appendChild(btnEle);
+
+            mainContainer.appendChild(divEle);
+
+            console.log(f_Name);
+
+        }
+
+        function deletItem(id) {
+            document.getElementById("id").remove();
+        }
+    </script>
+
+</body>
+
+</html>

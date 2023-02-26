@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const TRUTHY_VALUES = [true, "true", 1];
+
+        function getBoolean(value) {
+            if (typeof value === "string") {
+                value = value.toLowerCase().trim();
+                // console.log(value);
+            }
+
+            return TRUTHY_VALUES.some((t) => t === value);
+        }
+
+        // let a="false";
+        // console.log(typeof(a));
+
+        getBoolean(false); // false
+        getBoolean("false"); // false
+        getBoolean(1); // true
+        getBoolean("true"); // true
+    </script>
+</body>
+
+</html>

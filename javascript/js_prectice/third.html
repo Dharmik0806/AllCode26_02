@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>third</title>
+</head>
+
+<body>
+    <script>
+       details = [
+        first = {
+            Name : "A1",
+            Age : 23,
+            Std : 12,
+            id : 1
+        },
+
+        secound = {
+            Name : "B1",
+            Age : 13,
+            Std : 2,
+            id : 2
+        },
+
+        third = {
+            Name : "C1",
+            Age : 45,
+            Std : 10,
+            id : 3
+        }
+       ]
+
+    //    console.log(details);
+
+    //    details.map((s,i) => console.log(i,s));     // i for index
+
+    //    details.map((s,i) => console.log(i,s.id));     // id find index
+
+    details.map((f) => {
+        if(f.id === 3) {
+            console.log(f.Name , f.Age , f.Std , f.id);
+        }
+    })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nested object destrcturing</title>
+</head>
+<body>
+    <script>
+
+        const printData = ({name ,rollno:student_rollno, sub :{secound}}) => {
+            console.log(name);
+            console.log(student_rollno);
+            console.log(secound);
+        }
+        
+        let data = {
+            name : "amit",
+            age : 12,
+            rollno :23,
+            sub : {
+                first : "english",
+                secound : "math"
+            }
+        }
+        printData(data)
+
+
+    </script>
+</body>
+</html>

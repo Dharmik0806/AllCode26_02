@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do</title>
+</head>
+<body>
+    <script>
+        let data = ["one", "secound" , "third" , "fourth" , "fifth"];
+        data.sort();
+        console.log(data);
+        data[0] = "fifth";
+        
+        delete data[2];
+
+        console.log(data);
+        console.log(data.length);
+
+        // JOIN METHODE
+        console.log("before join" );
+        console.log(data);
+
+        console.log("after join" );
+        let info = data.join();
+        console.log(info);
+    </script>
+</body>
+</html>

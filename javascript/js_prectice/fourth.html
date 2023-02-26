@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fourth</title>
+</head>
+
+<body>
+    <script>
+        let print = [
+           abc =  {
+                name: "dharmik",
+                age: 22,
+                sub: {
+                    maths: 50,
+                    science: 80,
+                    english: 99
+                }
+            }
+        ]
+
+        // console.log(print);
+
+        print.map((t ,i) => {
+            console.log(t.sub , i);
+            for (let k in t.sub) {
+                console.log(t.sub[k] , i);
+
+                // if(k === "maths") {
+                //     console.log(k);
+                // }
+            }
+        })
+    </script>
+</body>
+
+</html>

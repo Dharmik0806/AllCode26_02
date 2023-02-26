@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d2</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="abc_css.css">
+</head>
+
+<body>
+    <div id="cart_container" class="flex">
+
+        <div class="cart_item">
+            <img src="image/product1.jpg" alt="image_1" />
+            <button class="btn" onclick="cart_item()">
+                <i class="fa fa-cart-shopping"></i>
+            </button>
+        </div>
+
+        <div class="cart_item">
+            <img src="image/product2.jpg" alt="image_2" />
+            <button class="btn" onclick="cart_item()">
+                <i class="fa fa-cart-shopping"></i>
+            </button>
+        </div>
+
+        <div class="cart_item">
+            <img src="image/product3.jpg" alt="image_3" />
+            <button class="btn" onclick="cart_item()">
+                <i class="fa fa-cart-shopping"></i>
+            </button>
+        </div>
+
+        <div class="cart_item">
+            <img src="image/product4.jpg" alt="image_4" />
+            <button class="btn" onclick="cart_item()">
+                <i class="fa fa-cart-shopping"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- *******************************************************    print           ********************************************************* -->
+    <div id="print_item_container">
+        <!-- <div id="print_head">
+            <p>Product Name & Details</p>
+            <p>Price</p>
+            <p>Quantity</p>
+            <p>Total</p>
+        </div> -->
+
+        <h1>Cart Item</h1>
+        <div class="print_item">
+            
+            <div class="product_details">
+                <img src="image/product1.jpg" alt="i1" />
+
+                <div>
+                    <p>Name of Product</p>
+                    <span>color</span>
+                    <span>Size</span>
+                    <span>Ships from : india</span>
+                </div>
+            </div>
+
+            <p>50000</p>
+
+            <p>5</p>
+
+            <p>$500</p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        function cart_item() {
+            console.log("okok");
+        }
+    </script>
+
+</body>
+
+</html>

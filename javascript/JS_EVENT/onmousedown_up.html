@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onmouse down up </title>
+</head>
+<body>
+    <h1 id="fname">Javascript</h1>
+
+    <p onmousedown="mouseDown()" onmouseup="mouseUp()">press this paragraf</p>
+    
+    <script>
+        function mouseDown() {
+            document.getElementById("fname").style.color="red";
+        }
+
+        function mouseUp() {
+            document.getElementById("fname").style.color="blue";
+        }
+    </script>
+</body>
+</html>

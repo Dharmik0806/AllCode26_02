@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onmouseenter</title>
+</head>
+
+<body>
+
+    <!-- <img id="eni_img1" onmouseenter="mouseEnter()" onmouseleave="mouseLeave()" src="../IMAGE/enimal_1.jpg" alt="img_1" width="150px" height="125px" /> -->
+                                                    <!-- //OR -->
+    <img onmouseenter="mouseEnter(this)" onmouseleave="mouseLeave(this)" src="../IMAGE/enimal_1.jpg" alt="img_1" width="150px" height="125px" />
+
+
+    <script>
+        // function mouseEnter() {
+        //     document.getElementById("eni_img1").style.height = "150px";
+        //     document.getElementById("eni_img1").style.width = "170px";
+        // }
+
+        // function mouseLeave() {
+        //     document.getElementById("eni_img1").style.height="125px"
+        //     document.getElementById("eni_img1").style.width="150px"
+        // }
+
+                        // OR
+
+        function mouseEnter(img1) {
+            img1.style.height="150px"
+            img1.style.width="170px"
+        }
+
+        function mouseLeave(img1) {
+            img1.style.height="125px"
+            img1.style.width="150px"
+        }
+    </script>
+</body>
+
+</html>

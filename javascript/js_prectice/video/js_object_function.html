@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js function object</title>
+</head>
+
+<body>
+    <script>
+        let data1 = {
+            fname: "amit",
+            lname: "patel",
+            id: 123,
+            // ?????? arrore ave se
+            Name: function () {
+                return this.fname + " " + this.lname;
+            },
+            full_name : name()
+        }
+
+        console.log(data1);
+
+        function name() {
+            return "lakani dharmik";
+        }
+    </script>
+</body>
+
+</html>

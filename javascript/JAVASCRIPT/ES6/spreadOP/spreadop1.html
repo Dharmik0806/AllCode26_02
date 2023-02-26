@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread1</title>
+</head>
+<body>
+    <script>
+        // with spread op
+        let data = ["first" , "secound" , "third"];
+        let newData = [...data, "four"];
+
+        console.log(" with spread op");
+        console.log(newData);
+        console.log(data); 
+        
+        // without spread op
+        let student = ["amit" , "rahul" , "ketan"]
+        let newStu = student;
+
+        newStu.push("hardik")
+
+        console.log(" without spread op");
+        console.log(newStu);
+        console.log(student);
+    </script>
+</body>
+</html>

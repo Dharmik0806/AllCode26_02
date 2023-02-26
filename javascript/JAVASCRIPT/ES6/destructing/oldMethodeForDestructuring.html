@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //***************** without destructuring *********************
+        // const getData = (data) => {
+        //     console.log(data.name);
+        //     console.log(data.age);
+        //     console.log(data.rollNo);
+        // }
+
+       //***************** with destructuring *********************
+        const getData = ({ name, age, rollNo }) => {
+            console.log(name);
+            console.log(age);
+            console.log(rollNo);
+        }
+
+        let data = {
+            name: "dharmik",
+            age: 23,
+            rollNo: 12
+        }
+
+        getData(data)
+    </script>
+</body>
+
+</html>
