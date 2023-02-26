@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+}
+.fav_container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px;
+}
+
+.box p{
+   line-height: 20px;
+   font-weight: bold;
+}
+
+.boxImg{
+    position: relative;
+}
+
+.boxImg img{
+    width: 250px;
+    height: 200px;
+}
+
+.fa-regular ,
+.fa-solid{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: rgb(93, 95, 95);
+}

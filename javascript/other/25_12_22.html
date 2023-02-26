@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25_12_22</title>
+</head>
+
+<body>
+
+    <p>Select Products.</p>
+
+    <select id="myproduct" onchange="selectedItem()">
+        <option value="0">SELECT</option>
+        <option value="HL">price heigh to low</option>
+        <option value="LH">price low to heigh</option>
+        <option value="AZ">Name A to Z</option>
+        <option value="ZA">NAme Z to A</option>
+        <option value="ID">ID</option>
+    </select>
+
+    <script>
+        let product = [
+            {
+                i_name: "TV",
+                i_price: 10000,
+                i_id: 102
+            },
+            {
+                i_name: "MOBAIL",
+                i_price: 12000,
+                i_id: 12
+            },
+            {
+                i_name: "SHOES",
+                i_price: 8000,
+                i_id: 182
+            },
+            {
+                i_name: "T - SHIRT",
+                i_price: 1000,
+                i_id: 88
+            },
+            {
+                i_name: "LENS",
+                i_price: 500,
+                i_id: 45
+            },
+            {
+                i_name: "TOY",
+                i_price: 800,
+                i_id: 42
+            },
+            {
+                i_name: "CAR",
+                i_price: 100000,
+                i_id: 982
+            },
+            {
+                i_name: "JEWELLERY",
+                i_price: 25000,
+                i_id: 123
+            },
+            {
+                i_name: "SUNGLASSES",
+                i_price: 300,
+                i_id: 432
+            },
+            {
+                i_name: "A-WATCH",
+                i_price: 5000,
+                i_id: 111
+            },
+        ]
+
+        function selectedItem() {
+            let type = document.getElementById("myproduct").value;
+            // console.log(type);
+
+            if (type === "HL") {
+                // console.log("hl");
+                                                    // 10000    <  12000     ? 1 : 10000   > 12000 ? -1:0
+                let display = 
+                    product.sort((p1, p2) => p2.i_price - p1.i_price);
+
+                console.log("product sorted based on price high to low :");
+
+                console.log(display);
+
+            }
+            else if (type === "LH") {
+                let display = 
+                    product.sort((p1, p2) => p1.i_price - p2.i_price);
+
+                console.log("product sorted based on price low to heigh :")
+
+                console.log(display);
+
+            }
+            else if (type === "AZ") {
+                // product.sort();
+                // console.log(product);
+
+                let display = 
+                    product.sort((p1, p2) => p1.i_name.localeCompare(p2.i_name));
+
+                console.log("Students sorted based on name A to Z:")
+
+                console.log(display);
+            }
+            else if (type === "ZA") {
+                // product.reverse();
+
+                let display = 
+                    product.sort((p1, p2) => p2.i_name.localeCompare(p1.i_name));
+                
+
+                console.log("Students sorted based on name z to a:")
+
+                console.log(display);
+            } else if (type === "ID") {
+                let display = 
+                    product.sort((p1, p2) => p1.i_id - p2.i_id);
+
+                console.log("product sorted based ID :")
+
+                console.log(display);
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

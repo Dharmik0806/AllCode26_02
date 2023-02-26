@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            padding: 0 250px;
+        }
+
+        .box {
+            height: 300px;
+            width: 250px;
+            background-color: rgb(125, 125, 125);
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+            border-radius: 8%;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            padding: 8px 40px;
+            box-shadow: 0.5px 0.5px 1px white;
+        }
+
+        li {
+            list-style: none;
+
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .img_set {
+            height: 120px;
+            width: 120px;
+            border-radius: 5%;
+        }
+
+        #add_item div,
+        .settitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+
+        }
+
+        .cart_heading {
+            color: rgb(6, 24, 64);
+            border-bottom: 3px double rgb(141, 147, 149);
+        }
+
+        #add_item p,
+        #add_item h3 {
+            margin: 10px 65px;
+
+        }
+
+        .settitle {
+            color: rgb(0, 4, 47);
+            font-family: 'arial';
+            border-bottom: 2px double black;
+        }
+
+
+        .border_box {
+            border-bottom: 1px solid black;
+            margin: 0px;
+        }
+
+
+        .head_part {
+            color: rgb(0, 1, 64);
+            justify-content: space-between;
+            padding: 25px;
+        }
+
+        .cart_img {
+            margin: 30px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <ul>
+                    <img class="img_set" src="./images/mobile.jpg" alt="mobile">
+                    <h3>Mobile</h3>
+                    <p>10,000</p>
+                    <button onclick="add_cart(0,'Mobile',10000,'./images/mobile.jpg ')">BUY</button>
+                </ul>
+            </div>
+            <div class="box">
+                <ul>
+                    <img class="img_set" src="./images/laptop.jpg" alt="laptop">
+                    <h3>Laptop</h3>
+                    <p>35,000</p>
+                    </li>
+                    <button onclick="add_cart(1,'Laptop',35000,'./images/laptop.jpg')">BUY</button>
+                </ul>
+            </div>
+            <div class="box">
+                <div>
+                    <img class="img_set" src="./images/mobile.jpg" alt="bag">
+                    <h3>Bag</h3>
+                    <p>2500</p>
+                    <button onclick="add_cart(2,'Bag',2500,'./images/mobile.jpg')">BUY</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="add_item">
+
+        </div>
+    </div>
+
+    <script>
+        let product = []
+
+        function add_cart(p_id, p, r, pik) {
+            let flag = false;
+            let index;
+
+            if (product.length > 0) {
+                // console.log(p);
+                product.map((p, i) => {
+                    if (p.id === p_id) {
+                        flag = true;
+                        index = i;
+                    }
+                });
+
+                if (flag === true) {
+                    console.log(index, p_id);
+
+                    
+
+                    document.getElementById("q"+p_id).innerHTML = ++product[index].quantity;
+                    // let change_q = document.getElementById(p_id).innerHTML =
+                    //     "quantity: " + ++product[index].quantity;
+
+                } else {
+                    product.push({
+                        id: p_id,
+                        product_n: p,
+                        price: r,
+                        quantity: 1,
+                        image: pik
+                    });
+
+                     q_add(p_id, p, r, pik);
+
+
+                    // let t_elm = document.createElement("p");
+                    // t_elm.setAttribute("id", r);
+
+                    // let q_elm = document.createElement("p");
+                    // q_elm.setAttribute("id", q);
+
+                    // get_data.appendChild(q_elm);
+                    // let total = t_elm * q_elm ;
+                    // console.log(total);
+
+
+                }
+
+            } else {
+                product.push({
+                    id: p_id,
+                    product_n: p,
+                    price: r,
+                    quantity: 1,
+                    image: pik
+                });
+
+                q_add(p_id, p, r, pik);
+            }
+
+            console.log(product);
+        }
+
+        function q_add(p_id, p, r, pik) {
+            let get_data = document.getElementById("add_item");
+
+            let box1 = document.createElement("div");
+            box1.setAttribute("class", "border_box")
+            get_data.appendChild(box1);
+
+
+            let elm_img = document.createElement("img");
+            elm_img.setAttribute("src", pik);
+            elm_img.setAttribute("class", "cart_img")
+            box1.appendChild(elm_img);
+
+            // elm_img.setAttribute("class" , "img_node")
+
+            // let elm_id = document.createElement("p");
+            // let id_tnode = document.createTextNode(p_id);
+            // elm_id.appendChild(id_tnode);
+            // box1.appendChild(elm_id)
+
+            let mob_elm = document.createElement("h3");
+            let mob_name = document.createTextNode(p);
+            mob_elm.appendChild(mob_name);
+            box1.appendChild(mob_elm);
+
+            let mob_pri_elm = document.createElement("p");
+            let m_price = document.createTextNode(r);
+            mob_pri_elm.appendChild(m_price);
+            box1.appendChild(mob_pri_elm);
+
+            let q_pri_elm = document.createElement("p");
+            let q_node = document.createTextNode("1");
+            q_pri_elm.setAttribute("id", "q"+p_id);
+            q_pri_elm.appendChild(q_node);
+            box1.appendChild(q_pri_elm);
+
+            // let t_amt = r * q;
+            // console.log("total" + t_amt);
+            // let t_elm = document.createElement("p");
+            // let t_node = document.createTextNode("total")
+
+        }
+
+
+
+
+        let get_data = document.getElementById("add_item");
+        // get_data.setAttribute("class", "")
+
+        let head_data = document.createElement("div");
+        head_data.setAttribute("class", "head_part")
+        get_data.appendChild(head_data);
+
+        let set_title = document.createElement("h1");
+        set_title.setAttribute("class", "cart_heading")
+        let head_node = document.createTextNode("Shopping Cart");
+        set_title.appendChild(head_node);
+        head_data.appendChild(set_title);
+
+
+
+
+
+        let first_r = document.createElement("h3");
+        first_r.setAttribute("class", "settitle")
+
+        let r1 = document.createElement("p");
+        let r1_tnode = document.createTextNode(" ID ");
+        let r2 = document.createElement("p");
+        let r2_tnode = document.createTextNode(" NAME ");
+        let r3 = document.createElement("p");
+        let r3_tnode = document.createTextNode(" PRICE ");
+        let r4 = document.createElement("p");
+        let r4_tnode = document.createTextNode(" QUANTITY");
+        r1.appendChild(r1_tnode);
+        r2.appendChild(r2_tnode);
+        r3.appendChild(r3_tnode);
+        r4.appendChild(r4_tnode);
+        first_r.appendChild(r1);
+        first_r.appendChild(r2);
+        first_r.appendChild(r3);
+        first_r.appendChild(r4);
+        get_data.appendChild(first_r);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

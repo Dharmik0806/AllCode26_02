@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methode1</title>
+</head>
+
+<body>
+    <script>
+        let array = ["amit", "ketan", "hardik", "prakash"]
+
+        let ans = array.toString()
+        console.log(ans);
+
+        let ans1 = array.join("^")
+        console.log(ans1);
+
+        let ans2 = array.push("rahul")
+        console.log(ans2);
+        console.log(array);
+
+        let ans3 = array.pop()
+        console.log(ans3);
+        console.log(array);
+
+        let ans4 = array[array.length] = "jatin"
+        console.log(ans4);
+        console.log(array);
+
+        let ans5 = array.length;
+        console.log(ans5);
+
+        let ans6 = array.shift()
+        console.log(ans6)
+        console.log(array);;
+
+        let ans7 = array.unshift("narendra")
+        console.log(ans7)
+        console.log(array);
+
+        // delete array[0]
+        // console.log(array);
+        // console.log(array[0]);
+        // delete thay gaya pasi pan value undefine male
+        // Aana thi saru add and delete karava pop and push methode use karavi
+
+        let array2 = ["one", "two", "three", "four"];
+
+        let ans9 = array.concat(array2);
+        console.log(ans9);
+
+        let ans10 = ans9.concat("twenty")
+        console.log(ans10);
+
+        let array3 = ["bag", "pencil", "book"];
+
+        console.log(array3);
+        // position , how many element should be removed
+        array3.splice(1, 0, "home", "belt")
+        console.log(array3);
+
+        // array3 = ['bag', 'watch', 'belt', 'pencil', 'book']  // aa array se atyare
+        let ans11 = array3.splice(2, 2, "pen", "belt")
+        console.log(ans11);
+
+        // remove array element using splice
+        console.log(array3);
+        let ans12 = array3.splice(2,2)
+        console.log(array3);
+
+        // slice(1,3) => Does not remove any element from the source array.
+        let array4 = ["first" , "secound" , "third" , "fourth"];
+        let ans13 = array4.slice(1)
+        console.log(array4);
+        console.log(ans13);
+
+        console.log(array4);
+        let ans14 = array4.slice(1)
+        console.log(ans14);
+
+        // Math.round() , Math.random()
+        let ans15 = Math.round(Math.random() * 1000)
+        console.log(ans15);
+
+let ans16 = Math.floor(Math.random() * 100);
+console.log(ans16);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+#Image_gallary{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.box{
+    background-color: rgb(218, 213, 213);
+    position: relative;
+}
+
+.box img{
+    width: 300px;
+    height: 250px;
+    margin: 10px 0px;
+    margin: 5px;
+}
+
+/*  */
+.first img{
+    margin: 5px;
+}
+
+.first p{
+    margin: 5px;
+}
+
+.fav_icon{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+.show{
+    color: red;
+    font-size: 20px;
+    box-shadow: 1px 1px 4px white ;
+}
+
+.first{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

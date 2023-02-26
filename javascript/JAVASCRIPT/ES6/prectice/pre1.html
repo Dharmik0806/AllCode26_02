@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 onclick="handleClick()">hello</h1>
+    <script>
+        const handleClick = () => {
+            console.log("ok");
+        }
+
+        // alert("alert")
+        // confirm("confirm")
+        // console.log("consol")
+        // prompt("please enter name : " , "amit")
+        // document.write("this is first paragraph")
+
+        let age = parseInt(prompt("age :"))
+        console.log(age);
+
+        let num = prompt("number")
+        console.log(num);
+
+        let mark = parseFloat(prompt("mark"))
+        console.log(mark);
+
+        console.log(typeof age);
+        console.log(typeof num);
+        console.log(typeof mark);
+
+        //    array
+        let data = [1, 2, 3, 4, 5]
+        let newData = new Array(1, 2, 3, 4, 5)
+
+        console.log(data);
+        console.log(newData);
+
+        // multiline string
+        let str = `asd asdasd asd
+    wer werwer wer
+    rrrre
+    eeee ert ert ert et`
+
+    </script>
+</body>
+
+</html>

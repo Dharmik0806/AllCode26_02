@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map2</title>
+</head>
+
+<body>
+    <script>
+        let course = ["c", "c++", "java", "HTML", "CSS"];
+
+        let print1 = `<ul>`
+
+        course.map((d) => {
+           return print1 += `<li> ${d} </li>`
+        })
+
+        // print1 = print1 + `</ul>`
+        print1 += `</ul>`
+
+        console.log(print1);
+        document.write(print1)
+    </script>
+</body>
+
+</html>

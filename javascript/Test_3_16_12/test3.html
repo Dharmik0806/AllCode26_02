@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_3</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="test_3_css.css">
+
+<body>
+    <div id="Image_gallary">
+        <div class="box">
+            <p class="title">Nike</p>
+            <img src="image/image_1.jpeg" alt="" />
+            <p>100$</p>
+            <button class="fav_icon" id="1" onclick="select1( '1' , 'Nike' , 'image/image_1.jpeg' , '10$', 1)  "><i
+                    class="fa fa-heart"></i></button>
+        </div>
+
+        <div class="box">
+            <p class="title"> Bata</p>
+            <img src="image/image_2.jpeg" alt="" />
+            <p>50$</p>
+            <button class="fav_icon" id="2" onclick="select1('2' ,  'Bata' , 'image/image_2.jpeg' , '50$' , 2)"><i
+                    class="fa fa-heart"></i></button>
+        </div>
+
+        <div class="box">
+            <p class="title">Woodland</p>
+            <img src="image/image_3.jpeg" alt="" />
+            <p>40$</p>
+            <button class="fav_icon" id="3"
+                onclick="select1( '3' ,  'Woodland' , 'image/image_3.jpeg' , '100$', 3)"><i
+                    class="fa fa-heart"></i></button>
+        </div>
+    </div>
+
+    <div id="display">
+        <!-- <div class="display_box">
+            <img src="" alt="">
+            <p>name</p>
+            <p>price</p>           
+        </div> -->
+    </div>
+
+    <!-- <div>container.</div> -->
+    <script>
+        let container = [];
+        let index;
+        function select1(i_id, i_name, i_img, i_price, icon_id) {
+            // console.log("icon id : " , icon_id);
+
+            document.getElementById(icon_id).classList.toggle("show");
+            // console.log("kokok");
+            // console.log("id : ", i_id);
+            let count = 0;
+
+            let item = {
+                id: i_id,
+                name: i_name,
+                image: i_img,
+                price: i_price
+            }
+
+            if (container.length > 0) {
+                container.map((a, i) => {
+                    if (a.id == i_id) {
+                        count = 1;
+                        index = i;
+                        // console.log(a.id, "  == ", i_id);
+                    }
+                })
+
+                if (count == 1) {
+                    delet_item(i_id);
+                    // console.log("if ni if okokokokokokokokokkokokokokokok");
+                    // container.slice(index, 1);
+                } else {
+                    container.push(item);
+                    display_cart(i_id, i_name, i_img, i_price);
+                }
+            } else {
+                container.push(item);
+                display_cart(i_id, i_name, i_img, i_price);
+            }
+
+            // console.log(container);
+
+        }
+
+        function display_cart(i_id, i_name, i_img, i_price) {
+
+            let mainDiv = document.getElementById("display");
+
+            let subDiv = document.createElement("div");
+            subDiv.setAttribute("class", "first");
+            subDiv.setAttribute("id", "i" + i_id);
+
+
+            let imgEle = document.createElement("img");
+            imgEle.setAttribute("src", i_img);
+
+            let pEle = document.createElement("p");
+            let pText = document.createTextNode(i_name);
+            pEle.appendChild(pText);
+
+            let p_PriceEle = document.createElement("p");
+            let p_PriceText = document.createTextNode(i_price);
+            p_PriceEle.appendChild(p_PriceText);
+
+            let btnEle = document.createElement("button");
+            let btnText = document.createTextNode("delet");
+            btnEle.setAttribute("onclick", "delet_item(" + i_id + ")");
+            "delet_item(" + i_id + i_price + ")"
+            btnEle.appendChild(btnText);
+
+            // let total_DivEle = document.createElement("div");
+            // let total_DivText = document.createTextNode(container.length);
+            // total_DivEle.appendChild(total_DivText);
+
+
+            subDiv.appendChild(imgEle);
+            subDiv.appendChild(pEle);
+            subDiv.appendChild(p_PriceEle);
+            subDiv.appendChild(btnEle);
+            
+
+            mainDiv.appendChild(subDiv);
+            // mainDiv.appendChild(total_DivEle);
+
+        }
+
+        function delet_item(i_id) {
+            // console.log("delet : ", i_id);
+
+            document.getElementById("i" + i_id).remove();
+
+            let index2 = container.findIndex((i) => i.i_id === i_id);
+
+            container.splice(index2, 1);
+
+            if(document.getElementById(i_id).classList.contains("show")) {
+                document.getElementById(i_id).classList.remove("show");
+            }
+
+            // console.log(container);
+
+        }
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEachLoop</title>
+</head>
+
+<body>
+    <script>
+        // forEach(Item , Item Index , Array)
+
+        let data = ["one", "two", "three", "four", "five"]
+
+        // 1
+        data.forEach((s , i , array) =>  document.write(s + " , " + i + " , " +  array + "<br/>" ))
+
+        // 2 function
+        // data.forEach(printData)
+
+        // function printData(item , index , array) {
+        //     document.write(index + " => "+ item + "<br/>")
+        // }
+
+        // 3 updating array
+        // data.forEach(updateData)
+
+        // function updateData(data, index, array) {
+        //     let ans = array[index] = "chsnge " + data
+        //     document.write(ans + "<br/>")
+        // }
+
+        // 4) 
+        // data.forEach(newData)
+
+        // function newData(data, index, array) {
+        //     let nData = array[index] = `imageLink-${data}`
+        //     document.write(nData + "<br/>")
+        // }
+
+    </script>
+</body>
+
+</html>

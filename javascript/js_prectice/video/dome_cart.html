@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM CART</title>
+</head>
+<body>
+
+    <form onsubmit="AddToCart() ; event.preventDefault();" action="">
+        <label for="get_name" >Name : </label>
+        <input type="text" name="f_name"  id="get_name" />
+        <input type="submit" />
+    </form>
+
+    <!-- **************************************************************************************************************************** -->
+    <script>
+        function AddToCart() {
+            // console.log("aaaaaaaaa");
+            // = prompt("Please Enter Name : ");
+            let name = document.getElementById("get_name").value;
+
+            console.log(name);
+
+
+        }
+    </script>
+</body>
+</html>

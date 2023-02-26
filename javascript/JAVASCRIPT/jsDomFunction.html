@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- DOM => document object model -->
+    <!-- getElementById -->
+    <!-- getElementsByClassName -->
+
+    <h1 title="main head" id="header-color">HEADER</h1>
+    <p id="box-container">
+        this is a final paregraph
+    </p>
+
+    <p class="primary-color">first paregraph</p>
+    <p class="primary-color">secound paregraph</p>
+    <p>third paregraph</p>
+
+    <p class="class2">first class </p>
+    <p class="class2">secound class </p>
+
+    <script>
+        // id
+        document.getElementById("header-color").style.color = "pink"
+
+        // id
+        let obj = document.getElementById("box-container")
+        console.log(obj);
+
+        let obj2 = document.getElementById("box-container").innerHTML
+        console.log(obj2);
+
+        let obj3 = document.getElementById("box-container").innerHTML = "<h1>obj3</h1>"
+        console.log(obj3);
+
+        document.getElementById("box-container").onclick = function () {
+            console.log("ok function open")
+        }
+
+
+        //    class
+        const colorName = document.getElementsByClassName("primary-color");
+        colorName[1].style.backgroundColor = "green";
+
+        const finalClass = document.getElementsByClassName("class2")
+        let a = finalClass[1].innerHTML
+
+        console.log(a);
+
+        const changeContent = document.getElementsByClassName("class2")
+        finalClass[0].innerHTML="<h2>secound class</h2>"
+
+    </script>
+</body>
+
+</html>
