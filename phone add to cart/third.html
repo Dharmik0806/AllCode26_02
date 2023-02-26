@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="phone_wala_css.css">
+</head>
+
+<body>
+    <div id="container">
+        <div class="box">
+            <img src="image/dell.jpeg" alt="dell">
+            <p>Dell inspiron 16 Laptop </p>
+            <button onclick="addCart(1,'Dell',10000, 'image/dell.jpeg',0 )">Buy</button>
+        </div>
+        <div class="box">
+            <img src="image/apple.jpeg" alt="apple">
+            <p>Nokia</p>
+            <button onclick="addCart(2,'Apple',35000, 'image/apple.jpeg')">Buy</button,>
+        </div>
+        <div class="box">
+            <img src="image/vivo.jpeg" alt="3">
+            <p>Samsang</p>
+            <button onclick="addCart(3,'Vivo',50000, 'image/vivo.jpeg')">Buy</button>
+        </div>
+        <div class="box">
+            <img src="image/oppo.jpeg" alt="oppo">
+            <p>Dell inspiron 16 Laptop </p>
+            <button onclick="addCart(4,'Oppo',55000, 'image/oppo.jpeg')">Buy</button>
+        </div>
+    </div>
+
+
+    <div id="display">
+        <!-- <div class="cart_item">
+            <img src="" alt="">
+            <span>name</span>
+            <span>price</span>
+            <span id="i"i_id>quantity</span>
+            <button></button>
+        </div> -->
+    </div>
+
+    <script>
+        let arr = [];
+        
+
+
+        function addCart(i_id, i_name, i_price, i_img ,i_qua) {
+            // console.log(i_img);
+            let count = 0, index;
+            let item = {
+                id: i_id,
+                name: i_name,
+                price: i_price,
+                qua: i_qua
+            };
+
+            if (arr.length > 0) {
+
+                arr.map((a, i) => {
+                    if (a.id === i_id) {
+                        count = 1;
+                        index = i;
+                    }
+                });
+
+                if (count === 1) {
+                    arr[index].qua++;
+                    console.log(arr[index]);
+
+                    Quantity_change(i_id, i_name, i_price, i_img ,i_qua);
+                    console.log("qqqqqqqqqqqqqq");
+                } else {
+                    arr.push(item);
+                    cartDisplay(i_id, i_name, i_price, i_img ,i_qua);
+                }
+
+            } else {
+                arr.push(item);
+                cartDisplay(i_id, i_name, i_price, i_img ,i_qua);
+            }
+
+            
+            // console.log(arr);
+        }
+
+        function cartDisplay(i_id, i_name, i_price, i_img ,i_qua) {
+            console.log(i_id, i_name, i_price, i_img);
+            let mainDiv = document.getElementById("display");
+
+            let innDiv = document.createElement("div");
+            innDiv.setAttribute("class", "cart_item");
+            innDiv.setAttribute("id", "i"+i_id);
+
+            console.log(innDiv);
+
+            let sImg = document.createElement("img");
+            sImg.setAttribute("src" , i_img)
+
+            //          span name
+            let sName = document.createElement("span");
+            let tName = document.createTextNode(i_name);
+            sName.appendChild(tName);
+            // 
+
+            //          span price
+            let sPrice = document.createElement("span");
+            let tPrice = document.createTextNode(i_price);
+            sPrice.appendChild(tPrice);
+            // 
+
+             //          span QUANTITY
+             let sQua = document.createElement("span");
+            sQua.setAttribute("id", "i"+i_id);
+            let tQua  = document.createTextNode(i_qua++);
+            sQua.appendChild(tQua);
+            // 
+
+            //           button
+            let sButton = document.createElement("button");
+            let tButton = document.createTextNode("X");
+            sButton.setAttribute("onclick" , "delet_item("+ i_id+")");
+            sButton.appendChild(tButton);
+            // 
+
+
+            innDiv.appendChild(sImg);
+            innDiv.appendChild(sName);
+            innDiv.appendChild(sPrice);
+            innDiv.appendChild(sQua);
+
+            innDiv.appendChild(sButton);
+            mainDiv.append(innDiv);
+            
+        }
+
+        function delet_item(id) {
+            console.log(arr, id);
+            // console.log("okokok");
+            // console.log("i"+id);
+            document.getElementById("i"+id).remove();
+            
+            let ind = arr.findIndex((i) => i.id === id);
+
+            console.log(ind);
+
+            arr.splice(ind,1);
+            // document.getElementById("i"+id).detach();
+
+            // let mainDiv = document.getElementById("display");
+
+            // mainDiv.parentNode.removeChild("i"+id)
+        }
+
+        function Quantity_change(i_id, i_name, i_price, i_img ,i_qua) {
+            
+        }
+        
+    </script>
+
+
+</body>
+
+</html>
